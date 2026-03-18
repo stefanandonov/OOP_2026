@@ -51,6 +51,10 @@ public:
         return salary;
     }
 
+    void setSalary(double increasedSalary){
+        salary = increasedSalary;
+    }
+
     void increaseSalary () {
         salary+=2000;
     }
@@ -100,6 +104,16 @@ public:
         return lowest;
     }
 
+    void sort() {
+        for (int i = 0; i < totalEmployees; ++i) {
+            for (int j = 0; j < totalEmployees-i-1; ++j) {
+                if (employees[j].getSalary() < employees[j+1].getSalary()){
+                    swap(employees[j], employees[j+1]);
+                }
+            }
+        }
+    }
+
 };
 
 int main () {
@@ -143,11 +157,13 @@ int main () {
     c.print();
 
     cout << "Lowest paid employee: " << endl;
-    c.lowestPayedEmployee().print();
+    Employee & lowestPaid = c.lowestPayedEmployee();
+    lowestPaid.print();
 
-    c.lowestPayedEmployee().increaseSalary();
+    lowestPaid.increaseSalary();
 
     cout << "After salary increase" << endl;
+    c.sort();
     c.print();
 
     return 0;
