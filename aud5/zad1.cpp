@@ -114,6 +114,21 @@ public:
     }
 
 
+    Array operator + (const Array & other) {
+        Array result (this->capacity + other.capacity);
+
+        for (int i = 0; i < n; ++i) {
+            result+=content[i];
+        }
+
+        for (int i = 0; i < other.n; ++i) {
+            result+=other.content[i];
+        }
+
+        return result;
+    }
+
+
 
 
 };
@@ -160,6 +175,10 @@ int main () {
     a2[7]=-5;
 
     cout << (a2 == a);
+
+    cout << a << endl;
+    cout << a2 << endl;
+    cout << (a+a2);
 
     return 0;
 }
