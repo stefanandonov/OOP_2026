@@ -34,7 +34,7 @@ public:
     }
 
     bool equals(const Team &other) const {
-        return strcmp(this->name, other.name)==0 && strcmp(this->city, other.city)==0 && this->year == other.year;
+        return strcmp(this->name, other.name) == 0 && strcmp(this->city, other.city) == 0 && this->year == other.year;
     }
 };
 
@@ -58,6 +58,14 @@ public:
         this->homeGoals = homeGoals;
         this->awayGoals = awayGoals;
     }
+
+    Game(const Game &other)  {
+        this->home = other.home;
+        this->away = other.away;
+        this->homeGoals = other.homeGoals;
+        this->awayGoals = other.awayGoals;
+    }
+
 
     void print() {
         cout << "Home: ";
@@ -85,7 +93,7 @@ public:
 
 };
 
-bool rematch(Game & g1, Game & g2) {
+bool rematch(Game &g1, Game &g2) {
     return g1.getHome().equals(g2.getAway()) && g1.getAway().equals(g2.getHome());
 }
 
@@ -121,7 +129,7 @@ int main() {
 
     g1.print();
 
-    cout << rematch(g1,g2);
+    cout << rematch(g1, g2);
 
     return 0;
 }

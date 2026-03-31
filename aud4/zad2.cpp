@@ -54,20 +54,3 @@ int main () {
     cin >> n;
 
     Student students[100];
-
-    for (int i = 0; i < n; ++i) {
-        float average;
-        cin >> average;
-
-        students[i] = Student(average);
-        students[i].print();
-    }
-
-    for (int i = 0; i < n; ++i) {
-        students[i].print();
-    }
-
-    cout << Student::getStudentsAverageGrade();
-
-    return 0;
-}
